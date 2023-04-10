@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFS</title>
+    <link rel="stylesheet" href="bars.css">
+    <link rel="stylesheet" href="quiz.css">
+    <style>
+        h1{
+            text-align: center;
+        }
+        #explaination{
+            display: none;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        #close{
+            background-color: lightblue;
+            /* margin-top: -3px; */
+            padding: 9px 13px;
+            width: 104px;
+            height: 52px;
+            border-radius: 15px;
+            margin-left: 660px;
+            /* margin-right: 3px; */
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1> BFS</h1>
+    
+
+
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    
+
+      
+    <nav id="navigation">
+        <ul id="nav_bar">
+
+            <button id="exp">Explaination</button>
+
+            <!-- <div id="sortinhead_div">
+                <label for="Algorithm" id="sortinghead">Algorithm's:</label>
+            </div> -->
+
+            <!-- <div id="algo_div">
+                <select name="Algorithm" id="algo">
+                    <option value="Searching">Searching Algo's</option>
+                    <option value="Sorting">Sorting Algo's</option>
+                    <option value="Path_Finding">Path Finding Algo's</option> 
+                    <option value="Merge">Merge Sort</option>
+                    <option value="Quick">Quick Sort</option>
+                    <option value="Insertion">Insertion Sort </option>
+                    <option value="Bubble">Bubble Sort</option>
+                    <option value="Heap">Heap Sort</option>
+                    <option value="Selection">Selection Sort</option> 
+                </select>
+            </div>  -->
+
+            
+<!-- 
+             <label for="searching" id="searchhead">Searching Algo's:</label>
+            <select name="Searching" id="searching">
+            <option value="Binary Search">Binary Search</option>
+            <option value="Linear Search">Linear Search</option>
+            </select>
+
+            <label for="PathFinding" id="patheFindinghead">PathFinding Algo's:</label>
+            <select name="PathFinding" id="PathFinding">
+            <option value="Dijkstra's Algo">Dijkstra's Algo</option>
+            <option value="A* Algo">A* Algo</option>
+            <option value="BFS">BFS </option>
+            <option value="DFS">DFS</option> 
+            </select> 
+             <li class="sorting"><a href>Bubble Sort</a></li>
+            <li class="sorting"><a href>Quick Sort</a></li>
+            <li class="sorting"><a href>Insertion Sort</a></li>
+            <li class="sorting"><a href>Selection Sort</a></li>
+            <li class="sorting"><a href>Merge Sort</a></li>
+            <li class="sorting"><a href>Linear Search</a></li>   -->
+
+            <div id="arraybtn_div"> 
+                <button class="custom" name="custom"  type="submit" id="custom-array">Visualize</button>
+            </div>
+
+            <div id="Asize_div">
+                <label for="formControlRange" id="Asize">Size</label>
+            </div>
+
+            <div id="size_range_div">
+                <input type="range" label for="formControlRange" min="5" max="30" value="10"  id="size-array">        
+            </div>
+
+            <div id="speed_whole">
+                <div id="Aspeed_div">
+                    <label id="Aspeed" for="vol" class="range">Speed</label>
+                     <!-- <label for="formControlRange" id="Aspeed">Animation </label>  -->
+                </div>
+
+                <div id="speed_range_div">
+                    <input type="range" min="0" max="5" value="2" step="1" class="slider" id="speed"  title="Speed of the Animation">
+                    <!-- <input type="range" min="0" max="5" value="4" id="speed">  -->
+                </div>
+            </div>
+            
+                
+            <div id="runbtn_div">
+                <button id="run-button">RUN</button>
+            </div>
+                
+            <div id="skipbtn_div"> 
+                <button id="skip-button" onclick="window.location.href='feedback.html';">FEEDBACK</button>
+            </div>
+
+            <div id="quiz_div">
+                <button id="quiz_btn">Quiz</button>
+            </div>
+                
+        </ul>
+        
+    </nav>
+
+
+    <div id="array-space"></div>
+    <div align="center">
+        <canvas id="canvas" width=600 height=400 ></canvas>
+        <script>
+        const canvas=document.querySelector('#canvas');
+        const ctx=canvas.getContext('2d');
+        ctx.beginPath();//1st node lines
+        ctx.strokeStyle = "black";
+        ctx.moveTo(64,214);//1st line
+        ctx.lineTo(136,286);
+        ctx.moveTo(64,186);//2nd line
+        ctx.lineTo(136,114);
+        //ctx.moveTO(150,120);//3rd line
+        //ctx.lineTo(150,280);
+        ctx.stroke();
+        ctx.beginPath();//2nd node lines
+        ctx.strokeStyle = "black";
+        ctx.moveTo(150,120);
+        ctx.lineTo(150,280);
+        ctx.moveTo(170,100);
+        ctx.lineTo(330,100);
+        ctx.stroke();
+        ctx.beginPath();//3rd node lines
+        ctx.moveTo(164,286);
+        ctx.lineTo(336,114);
+        ctx.moveTo(170,300);
+        ctx.lineTo(330,300);
+        ctx.stroke();
+        ctx.beginPath();//4rth node lines
+        ctx.moveTo(350,120);
+        ctx.lineTo(350,280);
+        ctx.moveTo(364,114);
+        ctx.lineTo(436,186);
+        ctx.moveTo(364,286);
+        ctx.lineTo(436,214);
+        ctx.stroke();
+        ctx.beginPath();//weights
+        //ctx.strokeStyle="black";
+        ctx.moveTo(106,260);
+        ctx.lineTo(98,260);
+        ctx.lineTo(98,268);
+        ctx.lineTo(106,268);
+        ctx.lineTo(106,264);
+        ctx.lineTo(98,264);//6
+    
+        ctx.moveTo(98,132);
+        ctx.lineTo(106,132);
+        ctx.lineTo(106,140);
+        ctx.lineTo(98,140);
+        ctx.moveTo(106,136);
+        ctx.lineTo(98,136);//3(1,2)
+
+        ctx.moveTo(402,140);
+        ctx.lineTo(410,140);
+        ctx.lineTo(410,132);
+        ctx.lineTo(402,132);
+        ctx.lineTo(402,136);
+        ctx.lineTo(410,136);//9
+
+        ctx.moveTo(410,260);
+        ctx.lineTo(402,260);
+        ctx.lineTo(402,264);
+        ctx.lineTo(410,264);
+        ctx.lineTo(410,268);
+        ctx.lineTo(402,268);//5(6,5)
+
+        ctx.moveTo(156,196);
+        ctx.lineTo(164,196);
+        ctx.lineTo(164,200);
+        ctx.lineTo(156,200);
+        ctx.lineTo(156,204);
+        ctx.lineTo(164,204);//2(2,3)
+
+        ctx.moveTo(344,196);
+        ctx.lineTo(336,196);
+        ctx.lineTo(336,204);
+        ctx.lineTo(344,204);
+        ctx.lineTo(344,200);
+        ctx.lineTo(336,200);//6(4,5)
+
+        ctx.moveTo(254,86);
+        ctx.lineTo(246,86);
+        ctx.lineTo(246,90);
+        ctx.lineTo(254,90);
+        ctx.lineTo(254,94);
+        ctx.lineTo(246,94);//5(2,4)
+
+        ctx.moveTo(246,306);
+        ctx.lineTo(254,306);
+        ctx.lineTo(254,310);
+        ctx.lineTo(246,310);
+        ctx.lineTo(246,314);
+        ctx.lineTo(254,314);//2(3,5)
+
+        ctx.moveTo(246,206);
+        ctx.lineTo(254,206);
+        ctx.lineTo(254,214);
+        ctx.lineTo(246,214);
+        ctx.moveTo(254,210);
+        ctx.lineTo(246,210);
+        ctx.stroke()
+        ctx.beginPath();//1st circle
+        ctx.strokeStyle = "black";
+        ctx.arc(50, 200, 20, 0, 2 * Math.PI);
+        ctx.moveTo(50,190);
+        ctx.lineTo(50,210);
+        ctx.stroke();
+        ctx.beginPath();//2nd circle
+        ctx.strokeStyle = "black";
+        ctx.arc(150, 100, 20, 0, 2 * Math.PI);
+        ctx.moveTo(145,90);
+        ctx.lineTo(155,90);
+        ctx.lineTo(155,100);
+        ctx.lineTo(145,100);
+        ctx.lineTo(145,110);
+        ctx.lineTo(155,110);
+        ctx.stroke();
+        ctx.beginPath();//3rd circle
+        ctx.strokeStyle = "black";
+        ctx.arc(150, 300, 20, 0, 2 * Math.PI);
+        ctx.moveTo(145,290);
+        ctx.lineTo(155,290);
+        ctx.lineTo(155,310);
+        ctx.lineTo(145,310);
+        ctx.moveTo(155,300);
+        ctx.lineTo(145,300);
+        ctx.stroke();
+        ctx.beginPath();//4rth circle
+        ctx.strokeStyle = "black";
+        ctx.arc(350, 100, 20, 0, 2 * Math.PI);
+        ctx.moveTo(350,90);
+        ctx.lineTo(345,100);
+        ctx.lineTo(355,100);
+        ctx.moveTo(350,90);
+        ctx.lineTo(350,110);
+        ctx.stroke();
+        ctx.beginPath();//5th circle
+        ctx.strokeStyle = "black";
+        ctx.arc(350, 300, 20, 0, 2 * Math.PI);
+        ctx.moveTo(355,290);
+        ctx.lineTo(345,290);
+        ctx.lineTo(345,300);
+        ctx.lineTo(355,300);
+        ctx.lineTo(355,310);
+        ctx.lineTo(345,310);
+        ctx.stroke();
+        ctx.beginPath();//6th circle
+        ctx.strokeStyle = "black";
+        ctx.arc(450, 200, 20, 0, 2 * Math.PI);
+        ctx.moveTo(455,190);
+        ctx.lineTo(445,190);
+        ctx.lineTo(445,210);
+        ctx.lineTo(455,210);
+        ctx.lineTo(455,200);
+        ctx.lineTo(445,200);
+        ctx.stroke();
+        //ctx.arc(120, 200, 20, 0, 2 * Math.PI);
+        //ctx.arc(60, 300, 20, 0, 2 * Math.PI);
+        //ctx.arc(60, 300, 20, 0, 2 * Math.PI);
+        //ctx.arc(60, 300, 20, 0, 2 * Math.PI);
+        //ctx.arc(60, 300, 20, 0, 2 * Math.PI);
+        //ctx.line()
+        </script>
+        </div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+            <!-- Modal Section  -->
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close">&times;</div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-size"> -->
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Size Should be in Range (5 - 300)</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-text"> -->
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visibility each interger is of range (21 - 550).</small>
+                           </div>
+                           <div class="form-group">
+                                <label class="col-form-label text-info">Element to be searched</label>
+                                <textarea class="form-control" id="modal-search"></textarea><br>
+                                <small class="form-text text-muted">* Only for searching algorithms</small>
+                                <br>
+                                <small class="form-text text-muted">* Enter only one value</small>
+ 
+                            </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    
+
+    <!-- <section id="Sorting_Algorithms">
+        <h3>Sorting Algorithms!!!</h3>
+        
+            <a href="Merge.html" target="_blank" >Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+        
+    </section>
+
+    <section id="Searching_Algorithms">
+        <h3>Searching Algorithms!!!</h3>
+            <a href="Merge Sort" target="_blank">Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+    </section>
+
+    <section id="PathFinding_Algorithms">
+        <h3>PathFinding Algorithms!!!</h3>
+        
+            <a href="Merge Sort" id="merge1">Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+        
+    </section> -->
+
+    <section id="explaination">
+        <p><b>Introduction: </b>Breadth-First Search Algorithm or BFS is the most widely utilized method.
+
+            BFS is a graph traversal approach in which you start at a source node and layer by layer through the graph, 
+            analyzing the nodes directly related to the source node. Then, in BFS traversal, you must move on to the next-level neighbor nodes.
+            
+            According to the BFS, you must traverse the graph in a breadthwise direction:<br>
+            
+            1) To begin, move horizontally and visit all the current layer's nodes.<br>
+            2) Continue to the next layer.</p><br>
+            <img src="first.png"><br>
+            <p>Breadth-First Search uses a queue data structure to store the node and mark it as "visited" 
+                until it marks all the neighboring vertices directly related to it. 
+                The queue operates on the First In First Out (FIFO) principle, 
+                so the node's neighbors will be viewed in the order in which it inserts them in the node, 
+                starting with the node that was inserted first.</p>
+    
+                <h2> NEED FOR BFS:</h2>
+                <p>There are several reasons why you should use the BFS Algorithm to traverse graph data structure. The following are some of the essential features that make the BFS algorithm necessary:
+                    <br>
+                    1) The BFS algorithm has a simple and reliable architecture.<br>
+                    2) The BFS algorithm helps evaluate nodes in a graph and determines the shortest path to traverse nodes.<br>
+                    3) The BFS algorithm can traverse a graph in the fewest number of iterations possible.<br>
+                    4) The iterations in the BFS algorithm are smooth, and there is no way for this method to get stuck in an infinite loop.<br>
+                    5) In comparison to other algorithms, the BFS algorithm's result has a high level of accuracy.</p>
+    
+    
+        <h2> WORKING OF BFS:</h2>
+                <p>Breadth-First Search uses a queue data structure technique to store the vertices. And the queue follows the First In First Out (FIFO) principle, which means that the neighbors of the node will be displayed, beginning with the node that was put first.
+    
+                    The transverse of the BFS algorithm is approaching the nodes in two ways.<br>
+                    
+                   1) Visited node<br>
+                   2) Not visited node</p>
+                   
+    
+                    <h2>RULES FOR TRAVERSAL:</h2>
+                   <p>
+                    1) You can take any node as your source node or root node.<br>
+                    2) You should explore all the nodes.<br>
+                    3) And don't forget to explore on repeated nodes.<br>
+                    4) You must transverse the graph in a breadthwise direction, not depthwise.
+                   </p>
+    
+                   <h3>ARCHITECTURE:</h3>
+                   <img src="second.png"><br>
+                   <p>
+                    The above tree diagram contains three layers, which are numbered from 0 to 2. <br>
+    
+                    1) We are allowed to use any node as our source node as per the law. However, in this case, we can use 0 as our source node. <br>
+                    2) Then we explore breadthwise and find the nodes which are adjacently connected to our source node. <br>
+                    3) Then we must come down to layer two and find the relative nodes that are adjacent to the layer 1 nodes. <br>
+                    4) If you select the alternative source node, this order will change. And that's how the straightforward BFS algorithm operates. <br>
+                   </p>
+    
+            
+         <h3>Example</h3>
+         <p>The BFS algorithm starts at the first starting node in a graph and travels it entirely.
+             After traversing the first node successfully,
+             it visits and marks the next non-traversed vertex in the graph.</p>
+        <p><b>Step 1: </b>In the graph, every vertex or node is known. First, initialize a queue.</p>
+        <img src="third.png">
+        <p><b>Step 2: </b>In the graph, start from source node A and mark it as visited.</p>
+        <img src="fourth.png">
+        <p><b>Step 3: </b>Then you can observe B and E, which are unvisited nearby nodes from A. You have two nodes in this example, 
+            but here choose B, mark it as visited, and enqueue it alphabetically.</p>
+        <img src="fifth.png">
+        <p><b>Step 4: </b>Node E is the next unvisited neighboring node from A. You enqueue it after marking it as visited.</p>
+        <img src="sixth.png">
+        <p><b>Step 5: </b>A now has no unvisited nodes in its immediate vicinity. As a result, you dequeue and locate A.</p>
+        <img src="seventh.png">
+        <p><b>Step 6: </b>Node C is an unvisited neighboring node from B. You enqueue it after marking it as visited.</p>
+        <img src="eighth.png">
+        <p><b>Step 7: </b>Node D is an unvisited neighboring node from C. You enqueue it after marking it as visited.</p>
+        <img src="ninth.png">
+        <p><b>Step 8: </b>If all of D's adjacent nodes have already been visited, remove D from the queue.</p>
+        <img src="tenth.png">
+        <p><b>Step 9: </b>Similarly, all nodes near E, B, and C nodes have already been visited; therefore, you must remove them from the queue.</p>
+        <img src="eleventh.png">
+        <p><b>Step 10: </b>Because the queue is now empty, the bfs traversal has ended.</p>
+        <br>
+        <h3>Complexity Of Breadth-First Search Algorithm</h3>
+        <p>The time complexity of the breadth-first search algorithm can be stated as O(|V|+|E|) because, in the worst case, it will explore every vertex and edge.
+            The number of vertices in the graph is |V|, while the edges are |E|.</p>
+        <button id="close">Close</button>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <section id="quiz-body">
+          <main>
+            <div class="quiz-container">
+              <div id="the-question-and-options">
+                <div class="question-number">
+                  <h3>
+                    Question <span class="question-of-total"></span> of
+                    <span class="total-question"></span>
+                    <span id="close_symbol">&times;</span>
+                  </h3>
+                </div>
+                <div class="the-question"></div>
+                <div class="options-field"></div>
+              </div>
+
+              <div id="ansExp">
+                  Click Here for explaination...
+              </div>
+  
+              <div id="trackers-next">
+                <!-- <div class="make-choise__container"> -->
+                  <div class="make-choice"></div>
+                  <div class="button">
+                    <button type="button" class="btn ripple" onclick="next()">
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <div class="answers-tracker"></div>
+              </div>
+            
+  
+            <div class="quiz-over">
+              <div class="box">
+                <h1>
+                  <span class="game-over"></span> <br /><br />
+                  Your Score
+                  <span class="correct-answers"></span>
+                  of
+                  <span class="total-question2"></span> questions! <br />
+                  It is
+                  <span class="percentage"></span>
+                </h1>
+                <button type="button" class="ripple" onclick="tryAgain()">
+                  Reload
+                </button>
+              </div>
+            </div>
+          </main>
+        </section>
+      </div>
+
+    <script src="bfs1.js"></script>
+    <script src="BFS.js"></script>
+    <script src="bfsquiz.js"></script>
+
+</body>
+</html>

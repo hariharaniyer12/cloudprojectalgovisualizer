@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstra</title>
+    <link rel="stylesheet" href="bars.css">
+    <link rel="stylesheet" href="quiz.css">
+    <style>
+        h1{
+            text-align: center;
+        }
+        #explaination{
+            display: none;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        #close{
+            background-color: lightblue;
+            /* margin-top: -3px; */
+            padding: 9px 13px;
+            width: 104px;
+            height: 52px;
+            border-radius: 15px;
+            margin-left: 660px;
+            /* margin-right: 3px; */
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Dijkstra's Algorithm</h1>
+    
+
+
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    
+
+      
+    <nav id="navigation">
+        <ul id="nav_bar">
+
+            <button id="exp">Explaination</button>
+
+            <!-- <div id="sortinhead_div">
+                <label for="Algorithm" id="sortinghead">Algorithm's:</label>
+            </div> -->
+
+            <!-- <div id="algo_div">
+                <select name="Algorithm" id="algo">
+                    <option value="Searching">Searching Algo's</option>
+                    <option value="Sorting">Sorting Algo's</option>
+                    <option value="Path_Finding">Path Finding Algo's</option> 
+                    <option value="Merge">Merge Sort</option>
+                    <option value="Quick">Quick Sort</option>
+                    <option value="Insertion">Insertion Sort </option>
+                    <option value="Bubble">Bubble Sort</option>
+                    <option value="Heap">Heap Sort</option>
+                    <option value="Selection">Selection Sort</option> 
+                </select>
+            </div>  -->
+
+            
+<!-- 
+             <label for="searching" id="searchhead">Searching Algo's:</label>
+            <select name="Searching" id="searching">
+            <option value="Binary Search">Binary Search</option>
+            <option value="Linear Search">Linear Search</option>
+            </select>
+
+            <label for="PathFinding" id="patheFindinghead">PathFinding Algo's:</label>
+            <select name="PathFinding" id="PathFinding">
+            <option value="Dijkstra's Algo">Dijkstra's Algo</option>
+            <option value="A* Algo">A* Algo</option>
+            <option value="BFS">BFS </option>
+            <option value="DFS">DFS</option> 
+            </select> 
+             <li class="sorting"><a href>Bubble Sort</a></li>
+            <li class="sorting"><a href>Quick Sort</a></li>
+            <li class="sorting"><a href>Insertion Sort</a></li>
+            <li class="sorting"><a href>Selection Sort</a></li>
+            <li class="sorting"><a href>Merge Sort</a></li>
+            <li class="sorting"><a href>Linear Search</a></li>   -->
+
+            <div id="arraybtn_div"> 
+                <button class="custom" name="custom"  type="submit" id="custom-array">Visualize</button>
+            </div>
+
+            <div id="Asize_div">
+                <label for="formControlRange" id="Asize">Size</label>
+            </div>
+
+            <div id="size_range_div">
+                <input type="range" label for="formControlRange" min="5" max="30" value="10"  id="size-array">        
+            </div>
+
+            <div id="speed_whole">
+                <div id="Aspeed_div">
+                    <label id="Aspeed" for="vol" class="range">Speed</label>
+                     <!-- <label for="formControlRange" id="Aspeed">Animation </label>  -->
+                </div>
+
+                <div id="speed_range_div">
+                    <input type="range" min="0" max="5" value="2" step="1" class="slider" id="speed"  title="Speed of the Animation">
+                    <!-- <input type="range" min="0" max="5" value="4" id="speed">  -->
+                </div>
+            </div>
+            
+                
+            <div id="runbtn_div">
+                <button id="run-button">RUN</button>
+            </div>
+                
+            <div id="skipbtn_div"> 
+                <button id="skip-button">FEEDBACK</button>
+            </div>
+
+            <div id="quiz_div">
+                <button id="quiz_btn">Quiz</button>
+            </div>
+                
+        </ul>
+        
+    </nav>
+
+
+    <div id="array-space"></div>
+    <div align="center">
+        <canvas id="canvas" width=600 height=400 ></canvas>
+        <script>
+        const canvas=document.querySelector('#canvas');
+        const ctx=canvas.getContext('2d');
+        ctx.beginPath();//1st node lines
+        ctx.strokeStyle = "black";
+        ctx.moveTo(64,214);//1st line
+        ctx.lineTo(136,286);
+        ctx.moveTo(64,186);//2nd line
+        ctx.lineTo(136,114);
+        //ctx.moveTO(150,120);//3rd line
+        //ctx.lineTo(150,280);
+        ctx.stroke();
+        ctx.beginPath();//2nd node lines
+        ctx.strokeStyle = "black";
+        ctx.moveTo(150,120);
+        ctx.lineTo(150,280);
+        ctx.moveTo(170,100);
+        ctx.lineTo(330,100);
+        ctx.stroke();
+        ctx.beginPath();//3rd node lines
+        ctx.moveTo(164,286);
+        ctx.lineTo(336,114);
+        ctx.moveTo(170,300);
+        ctx.lineTo(330,300);
+        ctx.stroke();
+        ctx.beginPath();//4rth node lines
+        ctx.moveTo(350,120);
+        ctx.lineTo(350,280);
+        ctx.moveTo(364,114);
+        ctx.lineTo(436,186);
+        ctx.moveTo(364,286);
+        ctx.lineTo(436,214);
+        ctx.stroke();
+        ctx.beginPath();//weights
+        //ctx.strokeStyle="black";
+        ctx.moveTo(106,260);
+        ctx.lineTo(98,260);
+        ctx.lineTo(98,268);
+        ctx.lineTo(106,268);
+        ctx.lineTo(106,264);
+        ctx.lineTo(98,264);//6
+    
+        ctx.moveTo(98,132);
+        ctx.lineTo(106,132);
+        ctx.lineTo(106,140);
+        ctx.lineTo(98,140);
+        ctx.moveTo(106,136);
+        ctx.lineTo(98,136);//3(1,2)
+
+        ctx.moveTo(402,140);
+        ctx.lineTo(410,140);
+        ctx.lineTo(410,132);
+        ctx.lineTo(402,132);
+        ctx.lineTo(402,136);
+        ctx.lineTo(410,136);//9
+
+        ctx.moveTo(410,260);
+        ctx.lineTo(402,260);
+        ctx.lineTo(402,264);
+        ctx.lineTo(410,264);
+        ctx.lineTo(410,268);
+        ctx.lineTo(402,268);//5(6,5)
+
+        ctx.moveTo(156,196);
+        ctx.lineTo(164,196);
+        ctx.lineTo(164,200);
+        ctx.lineTo(156,200);
+        ctx.lineTo(156,204);
+        ctx.lineTo(164,204);//2(2,3)
+
+        ctx.moveTo(344,196);
+        ctx.lineTo(336,196);
+        ctx.lineTo(336,204);
+        ctx.lineTo(344,204);
+        ctx.lineTo(344,200);
+        ctx.lineTo(336,200);//6(4,5)
+
+        ctx.moveTo(254,86);
+        ctx.lineTo(246,86);
+        ctx.lineTo(246,90);
+        ctx.lineTo(254,90);
+        ctx.lineTo(254,94);
+        ctx.lineTo(246,94);//5(2,4)
+
+        ctx.moveTo(246,306);
+        ctx.lineTo(254,306);
+        ctx.lineTo(254,310);
+        ctx.lineTo(246,310);
+        ctx.lineTo(246,314);
+        ctx.lineTo(254,314);//2(3,5)
+
+        ctx.moveTo(246,206);
+        ctx.lineTo(254,206);
+        ctx.lineTo(254,214);
+        ctx.lineTo(246,214);
+        ctx.moveTo(254,210);
+        ctx.lineTo(246,210);//3(3,4)
+        ctx.stroke()
+        ctx.beginPath();//1st circle
+        ctx.strokeStyle = "black";
+        ctx.arc(50, 200, 20, 0, 2 * Math.PI);
+        ctx.moveTo(50,190);
+        ctx.lineTo(50,210);
+        ctx.stroke();
+        ctx.beginPath();//2nd circle
+        ctx.strokeStyle = "black";
+        ctx.arc(150, 100, 20, 0, 2 * Math.PI);
+        ctx.moveTo(145,90);
+        ctx.lineTo(155,90);
+        ctx.lineTo(155,100);
+        ctx.lineTo(145,100);
+        ctx.lineTo(145,110);
+        ctx.lineTo(155,110);
+        ctx.stroke();
+        ctx.beginPath();//3rd circle
+        ctx.strokeStyle = "black";
+        ctx.arc(150, 300, 20, 0, 2 * Math.PI);
+        ctx.moveTo(145,290);
+        ctx.lineTo(155,290);
+        ctx.lineTo(155,310);
+        ctx.lineTo(145,310);
+        ctx.moveTo(155,300);
+        ctx.lineTo(145,300);
+        ctx.stroke();
+        ctx.beginPath();//4rth circle
+        ctx.strokeStyle = "black";
+        ctx.arc(350, 100, 20, 0, 2 * Math.PI);
+        ctx.moveTo(350,90);
+        ctx.lineTo(345,100);
+        ctx.lineTo(355,100);
+        ctx.moveTo(350,90);
+        ctx.lineTo(350,110);
+        ctx.stroke();
+        ctx.beginPath();//5th circle
+        ctx.strokeStyle = "black";
+        ctx.arc(350, 300, 20, 0, 2 * Math.PI);
+        ctx.moveTo(355,290);
+        ctx.lineTo(345,290);
+        ctx.lineTo(345,300);
+        ctx.lineTo(355,300);
+        ctx.lineTo(355,310);
+        ctx.lineTo(345,310);
+        ctx.stroke();
+        ctx.beginPath();//6th circle
+        ctx.strokeStyle = "black";
+        ctx.arc(450, 200, 20, 0, 2 * Math.PI);
+        ctx.moveTo(455,190);
+        ctx.lineTo(445,190);
+        ctx.lineTo(445,210);
+        ctx.lineTo(455,210);
+        ctx.lineTo(455,200);
+        ctx.lineTo(445,200);
+        ctx.stroke();
+        //ctx.arc(120, 200, 20, 0, 2 * Math.PI);
+        //ctx.arc(60, 300, 20, 0, 2 * Math.PI);
+        //ctx.arc(60, 300, 20, 0, 2 * Math.PI);
+        //ctx.arc(60, 300, 20, 0, 2 * Math.PI);
+        //ctx.arc(60, 300, 20, 0, 2 * Math.PI);
+        //ctx.line()
+        </script>
+        </div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+            <!-- Modal Section  -->
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-size"> -->
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Size Should be in Range (5 - 300)</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-text"> -->
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visibility each interger is of range (21 - 550).</small>
+                           </div>
+                           <div class="form-group">
+                                <label class="col-form-label text-info">Element to be searched</label>
+                                <textarea class="form-control" id="modal-search"></textarea><br>
+                                <small class="form-text text-muted">* Only for searching algorithms</small>
+                                <br>
+                                <small class="form-text text-muted">* Enter only one value</small>
+ 
+                            </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    
+
+    <!-- <section id="Sorting_Algorithms">
+        <h3>Sorting Algorithms!!!</h3>
+        
+            <a href="Merge.html" target="_blank" >Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+        
+    </section>
+
+    <section id="Searching_Algorithms">
+        <h3>Searching Algorithms!!!</h3>
+            <a href="Merge Sort" target="_blank">Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+    </section>
+
+    <section id="PathFinding_Algorithms">
+        <h3>PathFinding Algorithms!!!</h3>
+        
+            <a href="Merge Sort" id="merge1">Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+        
+    </section> -->
+
+    <section id="explaination">
+        <p><b>Introduction: </b>Dijkstra's algorithm allows us to find the shortest path between any two vertices of a graph.
+            It differs from the minimum spanning tree because the shortest distance between two vertices might not include all the vertices of the graph.</p><br>
+            <img src="first.png"><br>
+            
+    
+    
+        <h2> WORKING OF Dijkstra's:</h2>
+            <p>
+                Djikstra used this property in the opposite direction i.e we overestimate the distance of each vertex from the starting vertex. 
+                Then we visit each node and its neighbors to find the shortest subpath to those neighbors.<br>
+                The algorithm uses a greedy approach in the sense that we find the next best solution hoping that the end result is the best solution for the whole problem.
+            </p>   
+    
+            
+         <h3>Example</h3>
+         
+        <p><b>Step 1: </b>Start with a weighted graph</p>
+        <img src="second.png">
+        <p><b>Step 2: </b>Choose a starting vertex and assign infinity path values to all other devices</p>
+        <img src="third.png">
+        <p><b>Step 3: </b>Go to each vertex and update its path length</p>
+        <img src="fourth.png">
+        <p><b>Step 4: </b>If the path length of the adjacent vertex is lesser than new path length, don't update it</p>
+        <img src="fifth.png">
+        <p><b>Step 5: </b>Avoid updating path lengths of already visited vertices</p>
+        <img src="sixth.png">
+        <p><b>Step 6: </b>After each iteration, we pick the unvisited vertex with the least path length. So we choose 5 before 7</p>
+        <img src="seventh.png">
+        <p><b>Step 7: </b>Notice how the rightmost vertex has its path length updated twice</p>
+        <img src="eighth.png">
+        <p><b>Step 8: </b>Repeat until all the vertices have been visited</p>
+        <img src="ninth.png">
+        <br>
+        <h3>Dijkstra's Algorithm Complexity</h3>
+        <p>Time Complexity: O(E Log V)
+            <br>
+            where, E is the number of edges and V is the number of vertices.
+            <br>
+            Space Complexity: O(V)
+            </p>
+
+        <button id="close">Close</button>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <section id="quiz-body">
+          <main>
+            <div class="quiz-container">
+              <div id="the-question-and-options">
+                <div class="question-number">
+                  <h3>
+                    Question <span class="question-of-total"></span> of
+                    <span class="total-question"></span>
+                    <span id="close_symbol">&times;</span>
+                  </h3>
+                </div>
+                <div class="the-question"></div>
+                <div class="options-field"></div>
+              </div>
+
+              <div id="ansExp">
+                  Click Here for explaination...
+              </div>
+  
+              <div id="trackers-next">
+                <!-- <div class="make-choise__container"> -->
+                  <div class="make-choice"></div>
+                  <div class="button">
+                    <button type="button" class="btn ripple" onclick="next()">
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <div class="answers-tracker"></div>
+              </div>
+            
+  
+            <div class="quiz-over">
+              <div class="box">
+                <h1>
+                  <span class="game-over"></span> <br /><br />
+                  Your Score
+                  <span class="correct-answers"></span>
+                  of
+                  <span class="total-question2"></span> questions! <br />
+                  It is
+                  <span class="percentage"></span>
+                </h1>
+                <button type="button" class="ripple" onclick="tryAgain()">
+                  Reload
+                </button>
+              </div>
+            </div>
+          </main>
+        </section>
+      </div>
+
+    <script src="dijktra.js"></script>
+    <script src="Dijktrasalgo.js"></script>
+    <script src="dijkstraquiz.js"></script>
+
+</body>
+</html>
