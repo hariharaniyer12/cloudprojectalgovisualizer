@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heap Sort</title>
+    <link rel="stylesheet" href="Heap.css">
+    <link rel="stylesheet" href="Heap_quiz.css">
+    <style>
+        h1{
+            text-align: center;
+        }
+        #explaination{
+            display: none;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        #close{
+            background-color: lightblue;
+            /* margin-top: -3px; */
+            padding: 9px 13px;
+            width: 104px;
+            height: 52px;
+            border-radius: 15px;
+            margin-left: 660px;
+            /* margin-right: 3px; */
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Heap Sort</h1>
+    
+
+
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    
+
+      
+    <nav id="navigation">
+        <ul id="nav_bar">
+
+            <button id="exp">Explaination</button>
+
+            <!-- <div id="sortinhead_div">
+                <label for="Algorithm" id="sortinghead">Algorithm's:</label>
+            </div> -->
+
+            <!-- <div id="algo_div">
+                <select name="Algorithm" id="algo">
+                    <option value="Searching">Searching Algo's</option>
+                    <option value="Sorting">Sorting Algo's</option>
+                    <option value="Path_Finding">Path Finding Algo's</option> 
+                    <option value="Merge">Merge Sort</option>
+                    <option value="Quick">Quick Sort</option>
+                    <option value="Insertion">Insertion Sort </option>
+                    <option value="Bubble">Bubble Sort</option>
+                    <option value="Heap">Heap Sort</option>
+                    <option value="Selection">Selection Sort</option> 
+                </select>
+            </div>  -->
+
+            
+<!-- 
+             <label for="searching" id="searchhead">Searching Algo's:</label>
+            <select name="Searching" id="searching">
+            <option value="Binary Search">Binary Search</option>
+            <option value="Linear Search">Linear Search</option>
+            </select>
+
+            <label for="PathFinding" id="patheFindinghead">PathFinding Algo's:</label>
+            <select name="PathFinding" id="PathFinding">
+            <option value="Dijkstra's Algo">Dijkstra's Algo</option>
+            <option value="A* Algo">A* Algo</option>
+            <option value="BFS">BFS </option>
+            <option value="DFS">DFS</option> 
+            </select> 
+             <li class="sorting"><a href>Bubble Sort</a></li>
+            <li class="sorting"><a href>Quick Sort</a></li>
+            <li class="sorting"><a href>Insertion Sort</a></li>
+            <li class="sorting"><a href>Selection Sort</a></li>
+            <li class="sorting"><a href>Merge Sort</a></li>
+            <li class="sorting"><a href>Linear Search</a></li>   -->
+
+            <div id="arraybtn_div"> 
+                <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+            </div>
+
+            <div id="Asize_div">
+                <label for="formControlRange" id="Asize">Size</label>
+            </div>
+
+            <div id="size_range_div">
+                <input type="range" label for="formControlRange" min="5" max="30" value="10"  id="size-array">        
+            </div>
+
+            <div id="speed_whole">
+                <div id="Aspeed_div">
+                    <label id="Aspeed" for="vol" class="range">Speed</label>
+                     <!-- <label for="formControlRange" id="Aspeed">Animation </label>  -->
+                </div>
+
+                <div id="speed_range_div">
+                    <input type="range" min="0" max="5" value="2" step="1" class="slider" id="speed"  title="Speed of the Animation">
+                    <!-- <input type="range" min="0" max="5" value="4" id="speed">  -->
+                </div>
+            </div>
+            
+                
+            <div id="runbtn_div">
+                <button id="run-button">RUN</button>
+            </div>
+                
+            <div id="skipbtn_div"> 
+                <button id="skip-button" onclick="window.location.href='feedback.html';">FEEDBACK</button>
+            </div>
+
+            <div id="quiz_div">
+                <button id="quiz_btn">Quiz</button>
+            </div>
+                
+        </ul>
+        
+    </nav>
+
+
+    <div id="array-space"></div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+            <!-- Modal Section  -->
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close">&times</div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-size"> -->
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Size Should be in Range (5 - 300)</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-text"> -->
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visibility each interger is of range (21 - 550).</small>
+                           </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    <section id="explaination">
+        <h1>HEAP SORT
+        </h1>
+        <p><b>Introduction: </b>Heaps can be used in sorting an array. 
+            In max-heaps, maximum element will always be at the root. Heap Sort uses this property of heap to sort the array.</p><br>
+        <h2> WORKING OF HEAP SORT</h2>
+        <p><b>Example: </b>
+            In the diagram below,initially there is an unsorted array Arr having 6 elements and then max-heap will be built.</p>
+            <img src="eg1.png"><br>
+            <img src="eg2.png"><br>
+        <p><b>Step 1: </b>8 is swapped with 5</p>
+        <img src="first.png">
+        <p><b>Step 2: </b>8 is disconnected from heap as 8 is in correct position now and</p>
+        <img src="second.png">
+        <p><b>Step 3: </b>Max-heap is created and 7 is swapped with 3</p>
+        <img src="third.png">
+        <p><b>Step 4: </b>7 is disconnected from heap</p>
+        <img src="fourth.png">
+        <p><b>Step 5: </b>Max heap is created and 5 is swapped with 1</p>
+        <img src="fifth.png">
+        <p><b>Step 6: </b>5 is disconnected from heap</p>
+        <img src="sixth.png">
+        <p><b>Step 7: </b>Max heap is created and 4 is swapped with 3</p>
+        <img src="seventh.png">
+        <p><b>Step 8: </b>4 is disconnected from heap</p>
+        <img src="eighth.png">
+        <p><b>Step 9: </b>Max heap is created and 3 is swapped with 1</p>
+        <img src="ninth.png">
+        <p><b>Step 10: </b>3 is disconnected</p>
+        <img src="tenth.png">
+        <p>After all the steps, we will get a sorted array. </p>
+        <img src="eleventh.png">  
+
+        <button id="close">Close</button>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <section id="quiz-body">
+          <main>
+            <div class="quiz-container">
+              <div id="the-question-and-options">
+                <div class="question-number">
+                  <h3>
+                    Question <span class="question-of-total"></span> of
+                    <span class="total-question"></span>
+                    <span id="close_symbol">&times;</span>
+                  </h3>
+                </div>
+                <div class="the-question"></div>
+                <div class="options-field"></div>
+              </div>
+
+              <div id="ansExp">
+                  Click Here for explaination...
+              </div>
+  
+              <div id="trackers-next">
+                <!-- <div class="make-choise__container"> -->
+                  <div class="make-choice"></div>
+                  <div class="button">
+                    <button type="button" class="btn ripple" onclick="next()">
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <div class="answers-tracker"></div>
+              </div>
+            
+  
+            <div class="quiz-over">
+              <div class="box">
+                <h1>
+                  <span class="game-over"></span> <br /><br />
+                  Your Score
+                  <span class="correct-answers"></span>
+                  of
+                  <span class="total-question2"></span> questions! <br />
+                  It is
+                  <span class="percentage"></span>
+                </h1>
+                <button type="button" class="ripple" onclick="tryAgain()">
+                  Reload
+                </button>
+              </div>
+            </div>
+          </main>
+        </section>
+      </div>
+
+    <script src="Heap.js"></script>
+    <script src="Heap1.js"></script>
+    <script src="HeapQuiz.js"></script>
+
+</body>
+</html>

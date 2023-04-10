@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+    <link rel="stylesheet" href="Bubble.css">
+    <link rel="stylesheet" href="Bubble_quiz.css">
+    <style>
+        h1{
+            text-align: center;
+        }
+        #explaination{
+            display: none;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        #close{
+            background-color: lightblue;
+            /* margin-top: -3px; */
+            padding: 9px 13px;
+            width: 104px;
+            height: 52px;
+            border-radius: 15px;
+            margin-left: 660px;
+            /* margin-right: 3px; */
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Bubble Sort</h1>
+    
+
+
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    
+
+      
+    <nav id="navigation">
+        <ul id="nav_bar">
+
+            <button id="exp">Explaination</button>
+
+            <!-- <div id="sortinhead_div">
+                <label for="Algorithm" id="sortinghead">Algorithm's:</label>
+            </div> -->
+
+            <!-- <div id="algo_div">
+                <select name="Algorithm" id="algo">
+                    <option value="Searching">Searching Algo's</option>
+                    <option value="Sorting">Sorting Algo's</option>
+                    <option value="Path_Finding">Path Finding Algo's</option> 
+                    <option value="Merge">Merge Sort</option>
+                    <option value="Quick">Quick Sort</option>
+                    <option value="Insertion">Insertion Sort </option>
+                    <option value="Bubble">Bubble Sort</option>
+                    <option value="Heap">Heap Sort</option>
+                    <option value="Selection">Selection Sort</option> 
+                </select>
+            </div>  -->
+
+            
+<!-- 
+             <label for="searching" id="searchhead">Searching Algo's:</label>
+            <select name="Searching" id="searching">
+            <option value="Binary Search">Binary Search</option>
+            <option value="Linear Search">Linear Search</option>
+            </select>
+
+            <label for="PathFinding" id="patheFindinghead">PathFinding Algo's:</label>
+            <select name="PathFinding" id="PathFinding">
+            <option value="Dijkstra's Algo">Dijkstra's Algo</option>
+            <option value="A* Algo">A* Algo</option>
+            <option value="BFS">BFS </option>
+            <option value="DFS">DFS</option> 
+            </select> 
+             <li class="sorting"><a href>Bubble Sort</a></li>
+            <li class="sorting"><a href>Quick Sort</a></li>
+            <li class="sorting"><a href>Insertion Sort</a></li>
+            <li class="sorting"><a href>Selection Sort</a></li>
+            <li class="sorting"><a href>Merge Sort</a></li>
+            <li class="sorting"><a href>Linear Search</a></li>   -->
+
+            <div id="arraybtn_div"> 
+                <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+            </div>
+
+            <div id="Asize_div">
+                <label for="formControlRange" id="Asize">Size</label>
+            </div>
+
+            <div id="size_range_div">
+                <input type="range" label for="formControlRange" min="5" max="30" value="10"  id="size-array">        
+            </div>
+
+            <div id="speed_whole">
+                <div id="Aspeed_div">
+                    <label id="Aspeed" for="vol" class="range">Speed</label>
+                     <!-- <label for="formControlRange" id="Aspeed">Animation </label>  -->
+                </div>
+
+                <div id="speed_range_div">
+                    <input type="range" min="0" max="5" value="2" step="1" class="slider" id="speed"  title="Speed of the Animation">
+                    <!-- <input type="range" min="0" max="5" value="4" id="speed">  -->
+                </div>
+            </div>
+            
+                
+            <div id="runbtn_div">
+                <button id="run-button">RUN</button>
+            </div>
+                
+            <div id="skipbtn_div"> 
+                <button id="skip-button" onclick="window.location.href='feedback.html';">FEEDBACK</button>
+            </div>
+
+            <div id="quiz_div">
+                <button id="quiz_btn">Quiz</button>
+            </div>
+                
+        </ul>
+        
+    </nav>
+
+
+    <div id="array-space"></div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+            <!-- Modal Section  -->
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close">&times;</div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-size"> -->
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Size Should be in Range (5 - 300)</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-text"> -->
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visibility each interger is of range (21 - 550).</small>
+                           </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    <section id="explaination">
+        
+    <h1>BUBBLE SORT</h1>
+    <p><b>Introduction: </b>
+        Bubble sort is a simple sorting algorithm. 
+        This sorting algorithm is comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order. 
+        This algorithm is not suitable for large data sets as its average and worst case complexity are of O(n^2) where n is the number of items.</p>
+    <h2> WORKING OF BUBBLE SORT ALGORITHM</h2>
+    <p><b>Step 1:</b> We take an unsorted array for our example. Bubble sort takes O(n^2) time so we're keeping it short and precise.</p>
+    <img src="first.png">
+    <p><b>Step 2:</b>Bubble sort starts with very first two elements, comparing them to check which one is greater.</p>
+    <img src="second.png">
+    <p><b>Step 3:</b>In this case, value 33 is greater than 14, so it is already in sorted locations. Next, we compare 33 with 27.</p>
+    <img src="third.png">
+    <p><b>Step 4:</b>We find that 27 is smaller than 33 and these two values must be swapped.</p>
+    <img src="fourth.png">
+    <p><b>Step 5:</b>The new array should look like this -
+    </p>
+    <img src="fifth.png">
+    <p><b>Step 6:</b>Next we compare 33 and 35. We find that both are in already sorted positions.</p>
+    <img src="sixth.png">
+    <p><b>Step 7:</b>Then we move to the next two values, 35 and 10.</p>
+    <img src="seventh.png">
+    <p><b>Step 8:</b>We know then that 10 is smaller 35. Hence they are not sorted.</p>
+    <img src="eighth.png">
+    <p><b>Step 9:</b>We swap these values. We find that we have reached the end of the array. After one iteration, the array should look like this:</p>
+    <img src="ninth.png">
+    <p><b>Step 10:</b>To be precise, we are now showing how an array should look like after each iteration. After the second iteration, it should look like this:</p>
+    <img src="tenth.png">
+    <p><b>Step 11:</b>Notice that after each iteration, at least one value moves at the end.</p>
+    <img src="eleventh.png">
+    <p><b>Step 12:</b>And when there's no swap required, bubble sorts learns that an array is completely sorted.</p>
+    <img src="twelth.png">
+
+
+        <button id="close">Close</button>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <section id="quiz-body">
+          <main>
+            <div class="quiz-container">
+              <div id="the-question-and-options">
+                <div class="question-number">
+                  <h3>
+                    Question <span class="question-of-total"></span> of
+                    <span class="total-question"></span>
+                    <span id="close_symbol">&times;</span>
+                  </h3>
+                </div>
+                <div class="the-question"></div>
+                <div class="options-field"></div>
+              </div>
+
+              <div id="ansExp">
+                  Click Here for explaination...
+              </div>
+  
+              <div id="trackers-next">
+                <!-- <div class="make-choise__container"> -->
+                  <div class="make-choice"></div>
+                  <div class="button">
+                    <button type="button" class="btn ripple" onclick="next()">
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <div class="answers-tracker"></div>
+              </div>
+            
+  
+            <div class="quiz-over">
+              <div class="box">
+                <h1>
+                  <span class="game-over"></span> <br /><br />
+                  Your Score
+                  <span class="correct-answers"></span>
+                  of
+                  <span class="total-question2"></span> questions! <br />
+                  It is
+                  <span class="percentage"></span>
+                </h1>
+                <button type="button" class="ripple" onclick="tryAgain()">
+                  Reload
+                </button>
+              </div>
+            </div>
+          </main>
+        </section>
+      </div>
+
+    
+
+    <script src="Bubble1.js"></script>
+    <script src="Bubble.js"></script>
+    <script src="BubbleQuiz.js"></script>
+
+</body>
+</html>
