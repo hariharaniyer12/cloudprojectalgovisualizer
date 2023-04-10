@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="assets/bars.css">
+    <style>
+        img {
+        border: 5px solid #555;
+      }
+      #intro {
+        text-align: center; 
+        
+      }
+    </style>
+      
+</head>
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    <box id="box">
+        <header id="head"><h2>ALGORITHM VISUALIZER</h2></header>
+        <!-- <p id="login">LOGIN</p>
+        <p id="null">|</p>
+        <p id="signup">SIGNUP</p> -->
+    </box>
+
+    
+
+    <div id="array-space"></div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+              
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                               <input type="text" class="form-control" id="modal-size"> 
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Size Should be in Range (5 - 300)</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <input type="text" class="form-control" id="modal-text"> 
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visibility each interger is of range (21 - 550).</small>
+                           </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    <section id="intro" class="int">
+        <p>
+            The <bold>"ALGORITHM VISUALIZER"</bold> is a free tool which aims to provide better understanding of various Algorithms
+            by using different visualizing techniques. This tool aims to make the concept and working of algorithms clear
+            to the user and also user can test their understanding by taking up Quizzez. <br>
+            User can select among various <bold>"Searching", "Sorting" and "Path Finding"</bold> Algorithms.
+        </p>
+    </section>
+
+    <section id="algo_gif">
+
+        <div id="sorting_gif">
+            <!-- <h2>Sorting Algorithms</h2> -->
+            <a href="assets/Home Page/sort.gif"> <img src="assets/Home Page/sort.gif" alt="sorting" width="300" height="300"></a>
+            
+            
+        </div>
+
+        <div id="searching_gif">
+            <a href="assets/Home Page/search.gif"> <img src="assets/Home Page/search.gif" alt="searching" width="300" height="300"></a>
+            <!-- <h2>Searching Algorithms </h2> -->
+        </div>
+
+        <div id="path_gif">
+            <a href="assets/Home Page/path.gif"> <img src="assets/Home Page/path.gif" alt="path_finding" width="300" height="300"></a>
+            <!-- <h2>Path Finding Algorithms</h2> -->
+        </div>
+        <button id="gif_head1">Sorting Algorithms</button> 
+        <button id="gif_head2">Searching Algorithms</button>
+        <button id="gif_head3">Path Finding Algorithms</button>
+
+    </section>
+  
+    
+   
+<box id="ssp_box">
+    <section id="Sorting_Algorithms">
+        <h3>Sorting Algorithms!!!</h3>
+        
+            <a href="assets/Sorting_Algo/MergeSort_Algo/Merge.html" target="_blank" >Merge Sort</a>
+            <a href="assets/Sorting_Algo/QuickSort_Algo/Quick.html" target="_blank" id="quick1">Quick Sort</a>
+            <a href="assets/Sorting_Algo/BubbleSort_Algo/Bubble.html" target="_blank" id="bubble1">Bubble Sort</a>
+            <a href="assets/Sorting_Algo/InsertionSort_Algo/Insertion.html" target="_blank" id="insertion1">Insertion Sort</a>
+            <a href="assets/Sorting_Algo/HeapSort_Algo/Heap.html" target="_blank" id="heap1">Heap Sort</a>
+            <a href="assets/Sorting_Algo/SelectionSort_Algo/Selection.html" target="_blank" id="Selection1">Selection Sort</a>
+        
+    </section>
+
+    <section id="Searching_Algorithms">
+        <h3>Searching Algorithms!!!</h3>
+        <a href="assets/Searching_Algo/BinarySearch_Algo/binary.html" target="_blank">Binary Search</a>
+        <a href="assets/Searching_Algo/LinearSearch_Algo/linear.html" target="_blank" id="quick1">Linear Search</a>
+        <a href="assets/Searching_Algo/JumpSearch_Algo/jump.html" target="_blank" id="bubble1">Jump Search</a>
+        <a href="assets/Searching_Algo/ExponentialSearch_Algo/exponential.html" target="_blank" id="insertion1">Exponential Search</a>
+        <!-- <a href="Heap Sort" id="heap1">Heap Sort</a>
+        <a href="Selection Sort" id="Selection1">Selection Sort</a> -->
+    </section>
+
+    <section id="PathFinding_Algorithms">
+        <h3>PathFinding Algorithms!!!</h3>
+        
+            <a href="assets/PathFinding_Algo/BFS/bfs.html" target="_blank" id="merge1">BFS</a>
+            <a href="assets/PathFinding_Algo/DFS/DFS.html" target="_blank" id="quick1">DFS</a>
+            <a href="assets/PathFinding_Algo/Dijkstra/dijktra.html" target="blank" id="dijkstra1">Dijkstra's Algorithm</a>
+            <a href="assets/Insertion Sort" id="insertion1"></a>
+            <a href="assets/Heap Sort" id="heap1"></a>
+            <a href="assets/Selection Sort" id="Selection1"></a>
+        
+    </section>
+</box>
+
+    <section id="quiz_section">
+        <bold>What is the time complexity of Merge Sort?</bold>
+        <div id="merge_option">
+            <button>O(n)</button>
+            <button>O(n^2)</button>
+            <button>O(nlogn)</button>
+            <button>O(n!)</button>
+        </div>
+    </section>
+
+  
+
+    <script src="assets/bars.js"></script>
+    <script src="Sorting.js"></script>
+    <script src="Bubble.js"></script>
+    <script src="Merge.js"></script>
+    <script src="Quick.js"></script>
+    <script src="Insertion.js"></script>
+    <script src="Selection.js"></script>
+    <script src="Heap.js"></script>
+    
+  
+    
+</body>
+</html>
