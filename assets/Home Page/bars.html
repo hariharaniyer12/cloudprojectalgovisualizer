@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="bars.css">
+    
+</head>
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    <box id="box">
+        <header id="head"><h2>ALGORITHM VISUALIZER</h2></header>
+        <p id="login">LOGIN</p>
+        <p id="null">|</p>
+        <p id="signup">SIGNUP</p>
+    </box>
+
+    <!--  
+    <nav id="navigation">
+        <ul id="nav_bar">
+
+            <div id="sortinhead_div">
+                <label for="Algorithm" id="sortinghead">Algorithm's:</label>
+            </div>
+
+            <div id="algo_div">
+                <select name="Algorithm" id="algo">
+                    <option value="Searching">Searching Algo's</option>
+                    <option value="Sorting">Sorting Algo's</option>
+                    <option value="Path_Finding">Path Finding Algo's</option> 
+                    <option value="Merge">Merge Sort</option>
+                    <option value="Quick">Quick Sort</option>
+                    <option value="Insertion">Insertion Sort </option>
+                    <option value="Bubble">Bubble Sort</option>
+                    <option value="Heap">Heap Sort</option>
+                    <option value="Selection">Selection Sort</option> 
+                </select>
+            </div> 
+
+            
+
+             <label for="searching" id="searchhead">Searching Algo's:</label>
+            <select name="Searching" id="searching">
+            <option value="Binary Search">Binary Search</option>
+            <option value="Linear Search">Linear Search</option>
+            </select>
+
+            <label for="PathFinding" id="patheFindinghead">PathFinding Algo's:</label>
+            <select name="PathFinding" id="PathFinding">
+            <option value="Dijkstra's Algo">Dijkstra's Algo</option>
+            <option value="A* Algo">A* Algo</option>
+            <option value="BFS">BFS </option>
+            <option value="DFS">DFS</option> 
+            </select> 
+             <li class="sorting"><a href>Bubble Sort</a></li>
+            <li class="sorting"><a href>Quick Sort</a></li>
+            <li class="sorting"><a href>Insertion Sort</a></li>
+            <li class="sorting"><a href>Selection Sort</a></li>
+            <li class="sorting"><a href>Merge Sort</a></li>
+            <li class="sorting"><a href>Linear Search</a></li>  
+
+            <div id="arraybtn_div"> 
+                <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+            </div>
+
+            <div id="Asize_div">
+                <label for="formControlRange" id="Asize">Size</label>
+            </div>
+
+            <div id="size_range_div">
+                <input type="range" label for="formControlRange" min="5" max="30" value="10"  id="size-array">        
+            </div>
+
+            <div id="speed_whole">
+                <div id="Aspeed_div">
+                    <label id="Aspeed" for="vol" class="range">Speed</label>
+                     <label for="formControlRange" id="Aspeed">Animation </label> 
+                </div>
+
+                <div id="speed_range_div">
+                    <input type="range" min="0" max="5" value="2" step="1" class="slider" id="speed"  title="Speed of the Animation">
+                    <input type="range" min="0" max="5" value="4" id="speed"> 
+                </div>
+            </div>
+            
+                
+            <div id="runbtn_div">
+                <button id="run-button">RUN</button>
+            </div>
+                
+            <div id="skipbtn_div"> 
+                <button id="skip-button">SKIP</button>
+            </div>
+
+            <div id="quiz_div">
+                <button id="quiz_btn">Quiz</button>
+            </div>
+                
+        </ul>
+        
+    </nav>
+-->
+
+    <div id="array-space"></div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+            <!-- Modal Section  -->
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-size"> -->
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Size Should be in Range (5 - 300)</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-text"> -->
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visibility each interger is of range (21 - 550).</small>
+                           </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    
+
+    <section id="Sorting_Algorithms">
+        <h3>Sorting Algorithms!!!</h3>
+        
+            <a href="MergeSort_Algo/Merge.html" target="_blank" >Merge Sort</a>
+            <a href="QuickSort_Algo/Quick.html" target="_blank" id="quick1">Quick Sort</a>
+            <a href="BubbleSort_Algo/Bubble.html" target="_blank" id="bubble1">Bubble Sort</a>
+            <a href="InsertionSort_Algo/Insertion.html" target="_blank" id="insertion1">Insertion Sort</a>
+            <a href="HeapSort_Algo/Heap.html" target="_blank" id="heap1">Heap Sort</a>
+            <a href="SelectionSort_Algo/Selection.html" target="_blank" id="Selection1">Selection Sort</a>
+        
+    </section>
+
+    <section id="Searching_Algorithms">
+        <h3>Searching Algorithms!!!</h3>
+            <a href="Binary Search" target="_blank">Merge Sort</a>
+            <a href="Linear Search" id="quick1">Quick Sort</a>
+            <a href="Jump Search" id="bubble1">Bubble Sort</a>
+            <a href="Exponential Search" id="insertion1">Insertion Sort</a>
+            <!-- <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a> -->
+    </section>
+
+    <section id="PathFinding_Algorithms">
+        <h3>PathFinding Algorithms!!!</h3>
+        
+            <a href="Merge Sort" id="merge1">Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+        
+    </section>
+
+    <section id="quiz_section">
+        <bold>What is the time complexity of Merge Sort?</bold>
+        <div id="merge_option">
+            <button>O(n)</button>
+            <button>O(n^2)</button>
+            <button>O(nlogn)</button>
+            <button>O(n!)</button>
+        </div>
+    </section>
+
+  
+
+    <script src="bars.js"></script>
+    <script src="Sorting.js"></script>
+    <script src="Bubble.js"></script>
+    <script src="Merge.js"></script>
+    <script src="Quick.js"></script>
+    <script src="Insertion.js"></script>
+    <script src="Selection.js"></script>
+    <script src="Heap.js"></script>
+    
+  
+    
+</body>
+</html>
