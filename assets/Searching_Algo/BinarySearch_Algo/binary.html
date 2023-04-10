@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search</title>
+    <link rel="stylesheet" href="binary.css">
+    <link rel="stylesheet" href="binary_quiz.css">
+    <style>
+        h1{
+            text-align: center;
+        }
+        #explaination{
+            display: none;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        #close{
+            background-color: lightblue;
+            /* margin-top: -3px; */
+            padding: 9px 13px;
+            width: 104px;
+            height: 52px;
+            border-radius: 15px;
+            margin-left: 660px;
+            /* margin-right: 3px; */
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Binary Search</h1>
+    
+
+
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    
+
+      
+    <nav id="navigation">
+        <ul id="nav_bar">
+
+            <button id="exp">Explaination</button>
+
+            <div id="arraybtn_div"> 
+                <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+            </div>
+
+            <div id="Asize_div">
+                <label for="formControlRange" id="Asize">Size</label>
+            </div>
+
+            <div id="size_range_div">
+                <input type="range" label for="formControlRange" min="5" max="30" value="10"  id="size-array">        
+            </div>
+
+            <div id="speed_whole">
+                <div id="Aspeed_div">
+                    <label id="Aspeed" for="vol" class="range">Speed</label>
+                     <!-- <label for="formControlRange" id="Aspeed">Animation </label>  -->
+                </div>
+
+                <div id="speed_range_div">
+                    <input type="range" min="0" max="5" value="2" step="1" class="slider" id="speed"  title="Speed of the Animation">
+                    <!-- <input type="range" min="0" max="5" value="4" id="speed">  -->
+                </div>
+            </div>
+            
+                
+            <div id="runbtn_div">
+                <button id="run-button">RUN</button>
+            </div>
+                
+            <div id="skipbtn_div"> 
+                <button id="skip-button" onclick="window.location.href='feedback.html';">FEEDBACK</button>
+            </div>
+
+            <div id="quiz_div">
+                <button id="quiz_btn">Quiz</button>
+            </div>
+                
+        </ul>
+        
+    </nav>
+
+
+    <div id="array-space"></div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+            <!-- Modal Section  -->
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close">&times;</div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-size"> -->
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Minimum Size should be 5.</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-text"> -->
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visualization each interger is of range (5 - 80).</small>
+                              <br>
+                              <small class="form-text text-muted">* Enter a sorted array as binary seach only works on an sorted array</small>
+                           </div>
+                           <div class="form-group">
+                                <label class="col-form-label text-info">Element to be searched</label>
+                                <textarea class="form-control" id="modal-search"></textarea><br>
+                                <small class="form-text text-muted">* Only for searching algorithms</small>
+                                <br>
+                                <small class="form-text text-muted">* Enter only one value</small>
+ 
+                            </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    
+
+
+    <section id="explaination">
+            <p><b>Introduction: </b>Binary search is a fast search algorithm with run-time complexity of Ο(log n). This search algorithm works on the principle of divide and conquer. 
+                For this algorithm to work properly, the data collection should be in the sorted form.</p>
+            <h2> WORKING OF BINARY SEARCH</h2>
+            <p><b>Step 1: </b>For a binary search to work, it is mandatory for the target array to be sorted. 
+                We shall learn the process of binary search with a pictorial example. 
+                The following is our sorted array and let us assume that we need to search the location of value 31 using binary search.</p>
+            <img src="first (1).png">
+            <p><b>Step 2: </b>First, we shall determine half of the array by using this formula: 
+                <br>
+                mid = low + (high - low) / 2 <br>
+                Here it is, 0 + (9 - 0 ) / 2 = 4 (integer value of 4.5). So, 4 is the mid of the array.   
+                </p>
+            <img src="second.png">
+            <p><b>Step 3: </b>Now we compare the value stored at location 4, with the value being searched, 
+                i.e. 31. We find that the value at location 4 is 27, which is not a match. 
+                As the value is greater than 27 and we have a sorted array, 
+                so we also know that the target value must be in the upper portion of the array.</p>
+            <img src="third.png">
+            <p><b>Step 4: </b>We change our low to mid + 1 and find the new mid value again.
+                <br>
+                low = mid + 1 <br>
+                mid = low + (high - low) / 2 <br>
+                Our new mid is 7 now. We compare the value stored at location 7 with our target value 31.</p>
+            <img src="fourth.png">
+            <p><b>Step 5: </b>The value stored at location 7 is not a match, rather it is more than what we are looking for. 
+                So, the value must be in the lower part from this location.</p>
+            <img src="fifth.png">
+            <p><b>Step 6: </b>Hence, we calculate the mid again. This time it is 5.</p>
+            <img src="sixth.png">
+            <p><b>Step 7: </b>We compare the value stored at location 5 with our target value. We find that it is a match.</p>
+            <img src="seventh.png">
+            <p><br>We conclude that the target value 31 is stored at location 5.
+        
+                Binary search halves the searchable items and thus reduces the count of comparisons to be made to very less numbers.</p>
+
+        <button id="close">Close</button>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <section id="quiz-body">
+          <main>
+            <div class="quiz-container">
+              <div id="the-question-and-options">
+                <div class="question-number">
+                  <h3>
+                    Question <span class="question-of-total"></span> of
+                    <span class="total-question"></span>
+                    <span id="close_symbol">&times;</span>
+                  </h3>
+                </div>
+                <div class="the-question"></div>
+                <div class="options-field"></div>
+              </div>
+
+              <div id="ansExp">
+                  Click Here for explaination...
+              </div>
+  
+              <div id="trackers-next">
+                <!-- <div class="make-choise__container"> -->
+                  <div class="make-choice"></div>
+                  <div class="button">
+                    <button type="button" class="btn ripple" onclick="next()">
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <div class="answers-tracker"></div>
+              </div>
+            
+  
+            <div class="quiz-over">
+              <div class="box">
+                <h1>
+                  <span class="game-over"></span> <br /><br />
+                  Your Score
+                  <span class="correct-answers"></span>
+                  of
+                  <span class="total-question2"></span> questions! <br />
+                  It is
+                  <span class="percentage"></span>
+                </h1>
+                <button type="button" class="ripple" onclick="tryAgain()">
+                  Reload
+                </button>
+              </div>
+            </div>
+          </main>
+        </section>
+      </div>
+
+
+    <script src="binary1.js"></script>
+    <script src="binarysearch.js"></script>
+    <script src="binary_quiz.js"></script>
+
+</body>
+</html>

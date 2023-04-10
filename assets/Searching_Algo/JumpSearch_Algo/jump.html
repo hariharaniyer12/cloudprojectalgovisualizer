@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump Search</title>
+    <link rel="stylesheet" href="jump.css">
+    <link rel="stylesheet" href="jump_quiz.css">
+    <style>
+        h1{
+            text-align: center;
+        }
+        #explaination{
+            display: none;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        #close{
+            background-color: lightblue;
+            /* margin-top: -3px; */
+            padding: 9px 13px;
+            width: 104px;
+            height: 52px;
+            border-radius: 15px;
+            margin-left: 660px;
+            /* margin-right: 3px; */
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Jump Search</h1>
+    
+
+
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    
+
+      
+    <nav id="navigation">
+        <ul id="nav_bar">
+
+            <button id="exp">Explaination</button>
+
+            <!-- <div id="sortinhead_div">
+                <label for="Algorithm" id="sortinghead">Algorithm's:</label>
+            </div> -->
+
+            <!-- <div id="algo_div">
+                <select name="Algorithm" id="algo">
+                    <option value="Searching">Searching Algo's</option>
+                    <option value="Sorting">Sorting Algo's</option>
+                    <option value="Path_Finding">Path Finding Algo's</option> 
+                    <option value="Merge">Merge Sort</option>
+                    <option value="Quick">Quick Sort</option>
+                    <option value="Insertion">Insertion Sort </option>
+                    <option value="Bubble">Bubble Sort</option>
+                    <option value="Heap">Heap Sort</option>
+                    <option value="Selection">Selection Sort</option> 
+                </select>
+            </div>  -->
+
+            
+<!-- 
+             <label for="searching" id="searchhead">Searching Algo's:</label>
+            <select name="Searching" id="searching">
+            <option value="Binary Search">Binary Search</option>
+            <option value="Linear Search">Linear Search</option>
+            </select>
+
+            <label for="PathFinding" id="patheFindinghead">PathFinding Algo's:</label>
+            <select name="PathFinding" id="PathFinding">
+            <option value="Dijkstra's Algo">Dijkstra's Algo</option>
+            <option value="A* Algo">A* Algo</option>
+            <option value="BFS">BFS </option>
+            <option value="DFS">DFS</option> 
+            </select> 
+             <li class="sorting"><a href>Bubble Sort</a></li>
+            <li class="sorting"><a href>Quick Sort</a></li>
+            <li class="sorting"><a href>Insertion Sort</a></li>
+            <li class="sorting"><a href>Selection Sort</a></li>
+            <li class="sorting"><a href>Merge Sort</a></li>
+            <li class="sorting"><a href>Linear Search</a></li>   -->
+
+            <div id="arraybtn_div"> 
+                <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+            </div>
+
+            <div id="Asize_div">
+                <label for="formControlRange" id="Asize">Size</label>
+            </div>
+
+            <div id="size_range_div">
+                <input type="range" label for="formControlRange" min="5" max="30" value="10"  id="size-array">        
+            </div>
+
+            <div id="speed_whole">
+                <div id="Aspeed_div">
+                    <label id="Aspeed" for="vol" class="range">Speed</label>
+                     <!-- <label for="formControlRange" id="Aspeed">Animation </label>  -->
+                </div>
+
+                <div id="speed_range_div">
+                    <input type="range" min="0" max="5" value="2" step="1" class="slider" id="speed"  title="Speed of the Animation">
+                    <!-- <input type="range" min="0" max="5" value="4" id="speed">  -->
+                </div>
+            </div>
+            
+                
+            <div id="runbtn_div">
+                <button id="run-button">RUN</button>
+            </div>
+                
+            <div id="skipbtn_div"> 
+                <button id="skip-button" onclick="window.location.href='feedback.html';">FEEDBACK</button>
+            </div>
+
+            <div id="quiz_div">
+                <button id="quiz_btn">Quiz</button>
+            </div>
+                
+        </ul>
+        
+    </nav>
+
+
+    <div id="array-space"></div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+            <!-- Modal Section  -->
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close">&times;</div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-size"> -->
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Size Should be in Range (5 - 300)</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-text"> -->
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visibility each interger is of range (21 - 550).</small>
+                               <br>
+                               <small class="form-text text-muted">* Enter a sorted array, jump seach only works on an sorted array</small>
+                           </div>
+                           <div class="form-group">
+                                <label class="col-form-label text-info">Element to be searched</label>
+                                <textarea class="form-control" id="modal-search"></textarea><br>
+                                <small class="form-text text-muted">* Only for searching algorithms</small>
+                                <br>
+                                <small class="form-text text-muted">* Enter only one value</small>
+ 
+                            </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    
+
+    <!-- <section id="Sorting_Algorithms">
+        <h3>Sorting Algorithms!!!</h3>
+        
+            <a href="Merge.html" target="_blank" >Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+        
+    </section>
+
+    <section id="Searching_Algorithms">
+        <h3>Searching Algorithms!!!</h3>
+            <a href="Merge Sort" target="_blank">Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+    </section>
+
+    <section id="PathFinding_Algorithms">
+        <h3>PathFinding Algorithms!!!</h3>
+        
+            <a href="Merge Sort" id="merge1">Merge Sort</a>
+            <a href="Quick Sort" id="quick1">Quick Sort</a>
+            <a href="Bubble Sort" id="bubble1">Bubble Sort</a>
+            <a href="Insertion Sort" id="insertion1">Insertion Sort</a>
+            <a href="Heap Sort" id="heap1">Heap Sort</a>
+            <a href="Selection Sort" id="Selection1">Selection Sort</a>
+        
+    </section> -->
+
+    <section id="explaination">
+            <p><b>Introduction: </b>Jump Search Algorithm is a relatively new algorithm for searching an element in a sorted array.
+
+                The fundamental idea behind this searching technique is to search fewer number of elements compared to linear search algorithm 
+                (which scans every element in the array to check if it matches with the element being searched or not). 
+                This can be done by skipping some fixed number of array elements or jumping ahead by fixed number of steps in every iteration.</p>
+            <h2> WORKING OF JUMP SEARCH</h2>
+            <p><b>Step 1: </b>Let us trace the above algorithm using an example:
+        
+                Consider the following inputs:
+                <br>
+                A[] = {0, 1, 1, 2, 3, 5, 8, 13, 21, 55, 77, 89, 101, 201, 256, 780}
+                item = 77 <br>
+                m = √n = 4 (Block Size)</p>
+            
+            <p><b>Step 2: </b>Compare A[0] with item. Since A[0] != item and A[0] less than item, skip to the next block
+                </p>
+            <img src="first.png">
+            
+            <p><b>Step 3: </b>Compare A[3] with item. Since A[3] != itemand A[3] less than item, skip to the next block</p>
+            <img src="second.png">
+         
+            <p><b>Step 4: </b>Compare A[6] with item. Since A[6] != itemand A[6] less than item, skip to the next block</p>
+            <img src="third.png">
+            
+            <p><b>Step 5: </b>Compare A[9] with item. Since A[9] != itemand A[9]less than item, skip to the next block</p>
+            <img src="fourth.png">
+            
+            <p><b>Step 6: </b>Compare A[12] with item. Since A[12] != item and A[12] > item, 
+                skip to A[9] (beginning of the current block) and perform a linear search.</p>
+                <img src="fifth.png">
+                
+            <p><b>Step 7: </b>Compare A[9] with item. Since A[9] != item, scan the next element
+               <br> Compare A[10] with item. Since A[10] == item, 
+                index 10 is printed as the valid location and the algorithm will terminate</p>
+                <img src="sixth.png">
+            <p><br>We conclude that the target value 31 is stored at location 5.
+        
+                Binary search halves the searchable items and thus reduces the count of comparisons to be made to very less numbers.</p>
+
+        <button id="close">Close</button>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <section id="quiz-body">
+          <main>
+            <div class="quiz-container">
+              <div id="the-question-and-options">
+                <div class="question-number">
+                  <h3>
+                    Question <span class="question-of-total"></span> of
+                    <span class="total-question"></span>
+                    <span id="close_symbol">&times;</span>
+                  </h3>
+                </div>
+                <div class="the-question"></div>
+                <div class="options-field"></div>
+              </div>
+
+              <div id="ansExp">
+                  Click Here for explaination...
+              </div>
+  
+              <div id="trackers-next">
+                <!-- <div class="make-choise__container"> -->
+                  <div class="make-choice"></div>
+                  <div class="button">
+                    <button type="button" class="btn ripple" onclick="next()">
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <div class="answers-tracker"></div>
+              </div>
+            
+  
+            <div class="quiz-over">
+              <div class="box">
+                <h1>
+                  <span class="game-over"></span> <br /><br />
+                  Your Score
+                  <span class="correct-answers"></span>
+                  of
+                  <span class="total-question2"></span> questions! <br />
+                  It is
+                  <span class="percentage"></span>
+                </h1>
+                <button type="button" class="ripple" onclick="tryAgain()">
+                  Reload
+                </button>
+              </div>
+            </div>
+          </main>
+        </section>
+      </div>
+
+    <script src="jump1.js"></script>
+    <script src="jumpsearch.js"></script>
+    <script src="jump_quiz.js"></script>
+
+</body>
+</html>
