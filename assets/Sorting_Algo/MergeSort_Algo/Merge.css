@@ -1,0 +1,385 @@
+body{
+    background-color: blanchedalmond;
+    font-family: 'Baloo Bhai';
+    font-size: 20px;
+  }
+  #box{
+    display: flex;
+    color: blue;
+    
+    padding-left: 400px;
+    
+  }
+  
+  #head{
+    margin-right: 348px;
+  }
+  
+  #nav_bar{
+    display: justify;
+  }
+  
+  
+  #login{
+  text-align: center;
+  color: black;
+  }
+  
+  #signup{
+  text-align: center;
+  color: black;
+  }
+  
+  #login:hover{
+    color: blue;
+    cursor: pointer;
+  }
+  
+  #signup:hover{
+    color: blue;
+    cursor: pointer;
+  }
+  
+  #head{
+    cursor: pointer;
+  }
+  
+  #sortinghead{
+    /* margin-top: 34px; */
+    margin-left: -20px;
+  }
+  
+  #sortinhead_div{
+    margin-top: 25px;
+  }
+  
+  #algo{
+    height: 37px;
+    margin-top: 32px;
+    margin-left: 10px;
+  }
+  
+  #algo_div{
+    margin-top: -10px;
+  }
+  
+  /* Navigation */
+  #navigation{
+    background-color: grey;
+    border: 2px solid ;
+    border-radius: 23px;
+  }
+  .sorting:hover{
+    background-color: rgb(140, 156, 162);
+  }
+  ul{
+    display: flex;
+    list-style: none;
+  }
+  .sorting a{
+    color: black;
+    text-decoration: none;
+    padding: 20px 20px;
+  }
+  
+  /* Buttons */
+  
+  #exp{
+      background-color: lightblue;
+      margin-top: 16px;
+      padding: 9px 13px;
+      width: 104px;
+      height: 52px;
+      border-radius: 15px;
+      margin-left: -17px;
+      margin-right: -18px;
+  
+  }
+  
+  #exp:hover{
+    background-color: rgb(199, 223, 232);
+    cursor:pointer;
+  }
+  
+  #arraybtn{
+    display: flex;
+    
+  }
+  
+  #custom-array{
+    /* background-color: lightblue;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 23px; */
+  
+    
+    background-color: lightblue;
+      margin-top: 24px;
+      padding: 9px 26px;
+      width: 104px;
+      height: 50px;
+      border-radius: 15px;
+      margin-left: 34px;
+      margin-right: -29px;
+    
+    
+  }
+  
+  #arraybtn_div{
+    margin-top: -8px;
+    margin-left: 36px;
+  }
+  
+  #custom-array:hover{
+    background-color: rgb(199, 223, 232);
+    cursor:pointer;
+  }
+  #Asize{
+    margin-left: 35px;
+    margin-top: 26px;
+  }
+  #Asize_div{
+    margin-left: 97px;
+    margin-top: 1px;
+  
+  }
+  #size_range_div{
+    margin-right: -36px;
+    margin-left: -43px;
+  }
+  #size-array{
+    margin-left: -44px;
+      margin-top: 43px;
+      margin-right: 74px;
+      text-align: justify;
+    /* padding-left: 52px; */
+  }
+  
+  #speed_whole{
+    margin-right: -37px;
+  }
+  #Aspeed{
+    margin-right: 17px;
+    margin-left: -177px;
+    margin-top: 29px;
+  }
+  #Aspeed_div{
+    margin-top: 1px;
+    margin-left: 167px;
+    
+  }
+  #speed_range_div{
+    margin-left: -36px;
+    margin-top: 5px;
+  }
+  
+  #speed{
+    margin-top: 0px;
+    margin-left: 60px;
+  }
+  #run-button{
+    background-color: lightblue;
+    margin-top: 33px;
+    width: 103px;
+    height: 50px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    margin-left: 95px;
+  }
+  
+  #runbtn_div{
+    margin-left: -7px;
+    margin-top: -13px;
+  }
+  
+  #run-button:hover{
+    background-color: rgb(199, 223, 232);
+    cursor:pointer;
+  }
+  
+  #skip-button{
+    background-color: lightblue;
+    margin-top: 33px;
+    width: 103px;
+    height: 50px;
+    padding: 10px;
+    margin-left: 44px;
+    border-radius: 15px;
+  }
+  
+  #skipbtn_div{
+    margin-top: -12px;
+    margin-left: 7px;
+  }
+  
+  #skip-button:hover{
+    background-color: rgb(199, 223, 232);
+    cursor:pointer;
+  }
+  
+  #btnsec{
+    padding-left: 50px;
+  }
+  
+  #quiz_btn{
+    background-color: lightblue;
+    margin-top: 21px;
+    width: 103px;
+    height: 50px;
+    padding: 10px;
+    margin-left: 48px;
+    border-radius: 15px;
+  
+  }
+  
+  #quiz_section{
+    display: block;
+    border: 2px solid black;
+    display: none;
+    text-align: center;
+  }
+  
+  #quiz_btn:hover{
+    background-color: rgb(199, 223, 232);
+    cursor:pointer;
+  }
+  
+  
+  .close{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .label{
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    
+  }
+  
+  .input{
+    width: 300px;
+  }
+  
+  .btn{
+    background-color: green;
+    border-radius: 5px;
+    position: relative;
+    bottom: -40px;
+    width: 100px;
+  }
+  
+  .range{
+    margin-top: 20px;
+    margin-right: 90px;
+    text-align: justify;
+    padding-left: 52px;
+  }
+  
+  .slider{
+    color: red;
+    margin-top: 40px;
+    margin-left: -169px;
+  } 
+  
+  .bg-modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+  
+  .modal-contents{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: medium;   
+    position: relative; 
+  }
+  
+  .input{
+    width: 300px;
+    display: block;
+    margin: 15px auto;
+  }
+  
+  .close{
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    cursor: pointer;
+  }
+  
+  #size-error{
+    color: red;
+  }
+  
+  #Sorting_Algorithms{
+    
+    border: 2px solid black;
+    border-radius: 12px;
+    text-align: center;
+    width: 33%;
+  }
+  
+  #merge1{
+    display: block;
+  }
+  #quick1{
+    display: block;
+  }
+  #bubble1{
+    display: block;
+  }
+  #insertion1{
+    display: block;
+  }
+  #heap1{
+    display: block;
+  }
+  #selection1{
+    display: block;
+  }
+  
+  #Searching_Algorithms{
+    
+    border: 2px solid black;
+    border-radius: 12px;
+    text-align: center;
+    width: 33%;
+    margin-left: 425px;
+    margin-top: -281px;
+  }
+  
+  #PathFinding_Algorithms{
+    
+    border: 2px solid black;
+      border-radius: 12px;
+      text-align: center;
+      width: 33%;
+      margin-left: 850px;
+      margin-top: -280px;
+  }
+
+/* Answer Explaination */
+
+#ansExp{
+  display: none;
+}
+
+ 

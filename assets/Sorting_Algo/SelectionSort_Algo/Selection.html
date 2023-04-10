@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Sort</title>
+    <link rel="stylesheet" href="Selection.css">
+    <link rel="stylesheet" href="Selection_quiz.css">
+    <style>
+        h1{
+            text-align: center;
+        }
+        #explaination{
+            display: none;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+        #close{
+            background-color: lightblue;
+            /* margin-top: -3px; */
+            padding: 9px 13px;
+            width: 104px;
+            height: 52px;
+            border-radius: 15px;
+            margin-left: 660px;
+            /* margin-right: 3px; */
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Selection Sort</h1>
+    
+
+
+<link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+<body>
+
+    
+
+      
+    <nav id="navigation">
+        <ul id="nav_bar">
+
+            <button id="exp">Explaination</button>
+
+            <div id="arraybtn_div"> 
+                <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+            </div>
+
+            <div id="Asize_div">
+                <label for="formControlRange" id="Asize">Size</label>
+            </div>
+
+            <div id="size_range_div">
+                <input type="range" label for="formControlRange" min="5" max="30" value="10"  id="size-array">        
+            </div>
+
+            <div id="speed_whole">
+                <div id="Aspeed_div">
+                    <label id="Aspeed" for="vol" class="range">Speed</label>
+                     <!-- <label for="formControlRange" id="Aspeed">Animation </label>  -->
+                </div>
+
+                <div id="speed_range_div">
+                    <input type="range" min="0" max="5" value="2" step="1" class="slider" id="speed"  title="Speed of the Animation">
+                    <!-- <input type="range" min="0" max="5" value="4" id="speed">  -->
+                </div>
+            </div>
+            
+                
+            <div id="runbtn_div">
+                <button id="run-button">RUN</button>
+            </div>
+                
+            <div id="skipbtn_div"> 
+                <button id="skip-button" onclick="window.location.href='feedback.html';">FEEDBACK</button>
+            </div>
+
+            <div id="quiz_div">
+                <button id="quiz_btn">Quiz</button>
+            </div>
+                
+        </ul>
+        
+    </nav>
+
+
+    <div id="array-space"></div>
+
+    <section id="arraybtn">
+        <!-- <div> 
+        <button class="custom" name="custom"  type="submit" id="custom-array">Custom Array</button>
+        </div> -->
+
+            <!-- Modal Section  -->
+    <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close">&times</div>
+                    <div class="modal-header">
+                        <h4 class="modal-title mx-auto text-success" id="exampleModalCenterTitle">Input the Desired Array</h4>
+                     </div>
+                     <div class="modal-body">
+                        <form>
+                           <div class="form-group">
+                              <label for="modal-size" class="col-form-label text-info">Size of Array:</label>
+                              <textarea class="form-control" id="modal-size"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-size"> -->
+                              <div class="text-danger" id="size-error"></div>
+                              <small class="form-text text-muted">* Size Should be in Range (5 - 300)</small>
+                           </div>
+                           
+                           <div class="form-group">
+                              <label for="modal-text" class="col-form-label text-info">Elements of Array:</label>
+                              <textarea class="form-control" id="modal-text"></textarea>
+                              <!-- <input type="text" class="form-control" id="modal-text"> -->
+                              <div class="text-danger" id="text-error"></div>
+                              <small class="form-text text-muted">* Enter space seperated integers ,Total of above size.</small>
+                              <br>
+                              <small class="form-text text-muted">* For better Visibility each interger is of range (21 - 550).</small>
+                           </div>
+                           
+                        </form>
+                     </div>
+                     <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
+                     </div>
+                  </div>
+                </div>
+    </section>
+
+    <section id="explaination">
+        <h1>SELECTION SORT
+        </h1>
+        <p><b>Introduction: </b>Selection sort is a simple sorting algorithm. 
+            This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. 
+            Initially, the sorted part is empty and the unsorted part is the entire list.
+    
+            The smallest element is selected from the unsorted array and swapped with the leftmost element, and that element becomes a part of the sorted array. 
+            This process continues moving unsorted array boundary by one element to the right.</p>
+        <h2> WORKING OF SELECTION SORT</h2>
+        <p><b>Step 1: </b>Consider the following depicted array as an example</p>
+        <img src="first.png">
+        <p><b>Step 2: </b>For the first position in the sorted list, the whole list is scanned sequentially. 
+            The first position where 14 is stored presently, we search the whole list and find that 10 is the lowest value</p>
+        <img src="second.png">
+        <p><b>Step 3: </b>So we replace 14 with 10. 
+            After one iteration 10, which happens to be the minimum value in the list, appears in the first position of the sorted list.</p>
+        <img src="third.png">
+        <p><b>Step 4: </b>For the second position, where 33 is residing, we start scanning the rest of the list in a linear manner.</p>
+        <img src="fourth.png">
+        <p><b>Step 5: </b>We find that 14 is the second lowest value in the list and it should appear at the second place. 
+            We swap these values.</p>
+        <img src="fifth.png">
+        <p><b>Step 6: </b>After two iterations, two least values are positioned at the beginning in a sorted manner.</p>
+        <img src="sixth.png">
+        <p><b>Step 7: </b>The same process is applied to the rest of the items in the array.</p>
+        <img src="seventh.png">
+        <p><b>Step 8: </b>Following is a pictorial depiction of the entire sorting process: </p>
+        <img src="eighth.png"><br><br>
+        <img src="ninth.png"><br><br>
+        <img src="tenth.png"><br><br>
+        <img src="eleventh.png"><br><br>
+        <img src="twelth.png"><br><br> 
+        <img src="thirteenth.png"><br><br> 
+        <img src="fourteenth.png"><br><br> 
+        <img src="fifteenth.png"><br> 
+
+        <button id="close">Close</button>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <section id="quiz-body">
+          <main>
+            <div class="quiz-container">
+              <div id="the-question-and-options">
+                <div class="question-number">
+                  <h3>
+                    Question <span class="question-of-total"></span> of
+                    <span class="total-question"></span>
+                    <span id="close_symbol">&times;</span>
+                  </h3>
+                </div>
+                <div class="the-question"></div>
+                <div class="options-field"></div>
+              </div>
+
+              <div id="ansExp">
+                  Click Here for explaination...
+              </div>
+  
+              <div id="trackers-next">
+                <!-- <div class="make-choise__container"> -->
+                  <div class="make-choice"></div>
+                  <div class="button">
+                    <button type="button" class="btn ripple" onclick="next()">
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <div class="answers-tracker"></div>
+              </div>
+            
+  
+            <div class="quiz-over">
+              <div class="box">
+                <h1>
+                  <span class="game-over"></span> <br /><br />
+                  Your Score
+                  <span class="correct-answers"></span>
+                  of
+                  <span class="total-question2"></span> questions! <br />
+                  It is
+                  <span class="percentage"></span>
+                </h1>
+                <button type="button" class="ripple" onclick="tryAgain()">
+                  Reload
+                </button>
+              </div>
+            </div>
+          </main>
+        </section>
+      </div>
+
+    <script src="Selection.js"></script>
+    <script src="Selection1.js"></script>
+    <script src="SelectioQuiz.js"></script>
+
+</body>
+</html>
